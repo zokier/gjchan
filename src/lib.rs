@@ -37,8 +37,8 @@ impl<T> ChannelReader<T> where T: AsMut<[u8]> {
 
 // See: https://docs.capnproto-rust.org/gjio/trait.AsyncRead.html
 impl<T> ::gjio::AsyncRead for ChannelReader<T> where T: AsMut<[u8]> {
-    fn try_read<T>(&mut self, buf: T, min_bytes: usize) -> ::gj::Promise<(T, usize), Error>
-        where T: AsMut<[u8]>
+    fn try_read<U>(&mut self, buf: U, min_bytes: usize) -> ::gj::Promise<(U, usize), Error>
+        where U: AsMut<[u8]>
     {
         let (promise, fulfiller) = ::gj::Promise::and_fulfiller();
         self.fulfillments.push(ReadFulfillment {
