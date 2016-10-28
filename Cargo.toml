@@ -1,0 +1,8 @@
+[package]
+name = "gjchan"
+version = "0.1.0"
+authors = ["Torste Aikio <zokier@gmail.com>"]
+
+[dependencies]
+gj = "*"
+gjio = "*"
